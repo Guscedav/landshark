@@ -1,0 +1,11 @@
+<launch>
+	<node 
+		name="landshark_robot_node" 
+		pkg="landshark" 
+		type="landshark"
+		respawn="true"  >
+		<remap from="/robot/odom" to="/odom" />
+		<remap from="/robot/cmd_vel" to="/cmd_vel" />
+		<remap from="/robot/set_master_control" to="/set_master_control" />
+	</node>
+</launch>

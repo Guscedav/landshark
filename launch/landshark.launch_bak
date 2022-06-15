@@ -1,0 +1,8 @@
+<launch>
+	<node
+		pkg="landshark"
+		type="landshark"
+		name="landshark_robot_node"
+		output="screen"
+	/>
+</launch>

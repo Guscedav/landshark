@@ -1,0 +1,4 @@
+bool turn_on
+bool turn_off
+---
+bool is_on
