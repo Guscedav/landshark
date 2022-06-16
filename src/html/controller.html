@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta 
+            charset="utf-8" 
+            name='viewport'
+            content='width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=0'/>
+        <title>LANDSHARK</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+        var xmlhttp = null;
+        var task = window.setInterval("update()", 100);
+
+        var watchdogState = 0;
+
+        function update() {
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            }
+            else if (window.ActiveXObject) {
+                try {
+                    xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch (exception) {
+                    try {
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    catch (exception) {}
+                }
+            }
+            xmlhttp.onreadystatechange = refresh;
+            xmlhttp.open("GET", "/cgi-bin/robot");
+            xmlhttp.send(null);
+
+        }
+        function refresh() {
+            if (xmlhttp.readyState == 4) {
+
+                var xml = xmlhttp.responseXML;
+                var intValues = xml.getElementsByTagName("int");
+                var floatValues = xml.getElementsByTagName("float");
+                var state = intValues[1].childNodes[0].nodeValue;
+                
+                if (state == 0) {
+                    stateOff.style.backgroundColor="#0064A6"; stateOff.style.borderColor="#FF0000";
+                    stateIdle.style.backgroundColor="transparent"; stateIdle.style.borderColor="#FFFFFF";
+                    stateOn.style.backgroundColor="transparent"; stateOn.style.borderColor="#FF0000";
+                    stateManual.style.backgroundColor="transparent"; stateManual.style.borderColor="#FF0000";
+                    stateRemote.style.backgroundColor="transparent"; stateRemote.style.borderColor="#FF0000";
+                    stateStop.style.backgroundColor="transparent"; stateStop.style.borderColor="#FFFFFF";
+                    stateBrake.style.backgroundColor="transparent"; stateBrake.style.borderColor="#FFFFFF";
+                }
+                else if (state == 1) {
+                    stateOff.style.backgroundColor="transparent"; stateOff.style.borderColor="#00FF00";
+                    stateIdle.style.backgroundColor="#0064A6"; stateIdle.style.borderColor="#FFFFFF";
+                    stateOn.style.backgroundColor="transparent"; stateOn.style.borderColor="#00FF00";
+                    stateManual.style.backgroundColor="transparent"; stateManual.style.borderColor="#00FF00";
+                    stateRemote.style.backgroundColor="transparent"; stateRemote.style.borderColor="#00FF00";
+                    stateStop.style.backgroundColor="transparent"; stateStop.style.borderColor="#FFFFFF";
+                    stateBrake.style.backgroundColor="transparent"; stateBrake.style.borderColor="#FFFFFF";
+                }
+                else if (state == 2) {
+                    stateOff.style.backgroundColor="transparent"; stateOff.style.borderColor="#00FF00";
+                    stateIdle.style.backgroundColor="transparent"; stateIdle.style.borderColor="#FFFFFF";
+                    stateOn.style.backgroundColor="#0064A6"; stateOn.style.borderColor="#FF0000";
+                    stateManual.style.backgroundColor="transparent"; stateManual.style.borderColor="#00FF00";
+                    stateRemote.style.backgroundColor="transparent"; stateRemote.style.borderColor="#00FF00";
+                    stateStop.style.backgroundColor="transparent"; stateStop.style.borderColor="#FFFFFF";
+                    stateBrake.style.backgroundColor="transparent"; stateBrake.style.borderColor="#FFFFFF";
+                }
+                else if (state == 3) {
+                    stateOff.style.backgroundColor="transparent"; stateOff.style.borderColor="#00FF00";
+                    stateIdle.style.backgroundColor="transparent"; stateIdle.style.borderColor="#FFFFFF";
+                    stateOn.style.backgroundColor="transparent"; stateOn.style.borderColor="#00FF00";
+                    stateManual.style.backgroundColor="#0064A6"; stateManual.style.borderColor="#FF0000";
+                    stateRemote.style.backgroundColor="transparent"; stateRemote.style.borderColor="#00FF00";
+                    stateStop.style.backgroundColor="transparent"; stateStop.style.borderColor="#FFFFFF";
+                    stateBrake.style.backgroundColor="transparent"; stateBrake.style.borderColor="#FFFFFF";
+                }
+                else if (state == 4) {
+                    stateOff.style.backgroundColor="transparent"; stateOff.style.borderColor="#00FF00";
+                    stateIdle.style.backgroundColor="transparent"; stateIdle.style.borderColor="#FFFFFF";
+                    stateOn.style.backgroundColor="transparent"; stateOn.style.borderColor="#00FF00";
+                    stateManual.style.backgroundColor="transparent"; stateManual.style.borderColor="#00FF00";
+                    stateRemote.style.backgroundColor="#0064A6"; stateRemote.style.borderColor="#FF0000";
+                    stateStop.style.backgroundColor="transparent"; stateStop.style.borderColor="#FFFFFF";
+                    stateBrake.style.backgroundColor="transparent"; stateBrake.style.borderColor="#FFFFFF";
+                }
+                else if (state == 5) {
+                    stateOff.style.backgroundColor="transparent"; stateOff.style.borderColor="#FF0000";
+                    stateIdle.style.backgroundColor="transparent"; stateIdle.style.borderColor="#FFFFFF";
+                    stateOn.style.backgroundColor="transparent"; stateOn.style.borderColor="#FF0000";
+                    stateManual.style.backgroundColor="transparent"; stateManual.style.borderColor="#FF0000";
+                    stateRemote.style.backgroundColor="transparent"; stateRemote.style.borderColor="#FF0000";
+                    stateStop.style.backgroundColor="#0064A6"; stateStop.style.borderColor="#FFFFFF";
+                    stateBrake.style.backgroundColor="transparent"; stateBrake.style.borderColor="#FFFFFF";
+                }
+                else if (state == 6) {
+                    stateOff.style.backgroundColor="transparent"; stateOff.style.borderColor="#FF0000";
+                    stateIdle.style.backgroundColor="transparent"; stateIdle.style.borderColor="#FFFFFF";
+                    stateOn.style.backgroundColor="transparent"; stateOn.style.borderColor="#FF0000";
+                    stateManual.style.backgroundColor="transparent"; stateManual.style.borderColor="#FF0000";
+                    stateRemote.style.backgroundColor="transparent"; stateRemote.style.borderColor="#FF0000";
+                    stateStop.style.backgroundColor="transparent"; stateStop.style.borderColor="#FFFFFF";
+                    stateBrake.style.backgroundColor="#0064A6"; stateBrake.style.borderColor="#FFFFFF";
+                }
+                else {
+                    stateOff.style.backgroundColor="transparent"; stateOff.style.borderColor="#FF0000";
+                    stateIdle.style.backgroundColor="transparent"; stateIdle.style.borderColor="#FFFFFF";
+                    stateOn.style.backgroundColor="transparent"; stateOn.style.borderColor="#FF0000";
+                    stateManual.style.backgroundColor="transparent"; stateManual.style.borderColor="#FF0000";
+                    stateRemote.style.backgroundColor="transparent"; stateRemote.style.borderColor="#FF0000";
+                    stateStop.style.backgroundColor="transparent"; stateStop.style.borderColor="#FFFFFF";
+                    stateBrake.style.backgroundColor="transparent"; stateBrake.style.borderColor="#FFFFFF";
+                }
+            
+                document.getElementById("inputVoltage").innerHTML = floatValues[0].childNodes[0].nodeValue;
+                document.getElementById("x").innerHTML = floatValues[1].childNodes[0].nodeValue;
+                document.getElementById("y").innerHTML = floatValues[2].childNodes[0].nodeValue;
+                document.getElementById("alpha").innerHTML = floatValues[3].childNodes[0].nodeValue;
+        
+                if (watchdogState == 0) {
+                    watchdogState = 1;
+                }
+                else {
+                watchdogState = 0;
+                }
+                parent.frames[0].location.href='/cgi-bin/robot?watchdog='+watchdogState;
+            }
+        }
+        function moveSlider(name) {
+            console.log("moveSlider: "+name);
+            parent.frames[0].location.href = '/cgi-bin/robot?'+name+'='+document.getElementById(name).value;
+        }
+        function releaseSlider(name) {
+            console.log("releaseSlider: "+name);
+            document.getElementById(name).value = 0;
+            parent.frames[0].location.href = '/cgi-bin/robot?'+name+'=0';
+        }
+        function submitKp(name) {
+            console.log("submitKp: "+name);
+            parent.frames[0].location.href = '/cgi-bin/robot?'+name+'='+document.getElementById("KP").value;
+        }
+
+        </script>
+        <iframe src="dummy.html" width="0" height="0" name="dummy" scrolling="no" frameborder="0"></iframe>
+        <header></header>
+        <nav>
+            <img src="files/zhaw.png" width="170" style="position: absolute; top: 0px; padding: 15px;"/>
+
+            <form><input type="button" id="stateOff" value="OFF" onClick="parent.frames[0].location.href='/cgi-bin/robot?state=off'; return false" style="position: absolute; top: 120px; left: 15px; width: 170px; height: 40px;"></input></form>
+
+            <form><input type="button" id="stateOn" value="ON" onClick="parent.frames[0].location.href='/cgi-bin/robot?state=on'; return false" style="position: absolute; top: 170px; left: 15px; width: 170px; height: 40px;"></input></form>
+
+            <form><input type="button" id="stateManual" value="MANUAL" onClick="parent.frames[0].location.href='/cgi-bin/robot?state=manual'; return false" style="position: absolute; top: 220px; left: 15px; width: 170px; height: 40px;"></input></form>
+
+            <form><input type="button" id="stateRemote" value="REMOTE" onClick="parent.frames[0].location.href='/cgi-bin/robot?state=remote'; return false" style="position: absolute; top: 270px; left: 15px; width: 170px; height: 40px;"></input></form>
+
+            <form><input type="button" id="stateTracking" value="START TRACKING" onClick="parent.frames[0].location.href='/cgi-bin/robot?state=track'; return false" style="position: absolute; top: 370px; left: 15px; width: 170px; height: 40px;"></input></form>
+
+            <form><input type="button" id="stateFollow" value="STOP TRACKING" onClick="parent.frames[0].location.href='/cgi-bin/robot?state=follow'; return false" style="position: absolute; top: 370px; left: 260px; width: 170px; height: 40px;"></input></form>
+
+            <form><input type="button" id="stateNav" value="-> HOME" onClick="parent.frames[0].location.href='/cgi-bin/robot?state=nav'; return false" style="position: absolute; top: 420px; left: 15px; width: 170px; height: 40px;"></input></form>
+            
+            <form><input type="button" id="stateNav" value="-> GOAL" onClick="parent.frames[0].location.href='/cgi-bin/robot?state=nav'; return false" style="position: absolute; top: 470px; left: 15px; width: 170px; height: 40px;"></input></form>
+
+            <img src="files/Map_inncourt.jpg" width="480" style="position: absolute; top: 420px; left: 260px; padding: 15px;"/>
+
+            <p style="position: absolute; bottom: 50px">BACKWARD <------> FORWARD</p> 
+
+            <form><input type="range" id="translation" name="translation" min="-4.0" max="4.0" step="0.1" value="0" onInput="moveSlider('translation')" onMouseUp="releaseSlider('translation')" onTouchEnd="releaseSlider('translation')" style="position: absolute; bottom: 30px; left: 15px; right: 15px;"/></form>
+            
+        </nav>
+        <section>
+            <div class="section">
+
+                <!-- <form><input type="button" id="kpButton" value="Submit KP & Reset Odom" onClick="submitKp('KP')"; return false" style="position: absolute; bottom: 20px; left: 180px; width: 200px; height: 40px;"></input></form>
+
+                <form style="position: absolute; left: 20px; bottom: 30px">
+                    <label for="KP">Choose KP:</label>
+                
+                    <select id="KP" name="KP">
+                        <option value="0">0</option>
+                        <option value="0.05">0.05</option>
+                        <option value="0.1">0.1</option>
+                        <option value="0.2">0.2</option>
+                        <option value="0.3">0.3</option>
+                        <option value="0.5">0.5</option>
+                        <option value="1.0">1.0</option>
+                    </select>
+                </form> -->
+                    
+                <p style="position: absolute; top: 120px">Remove Brake Lock & Press Start Button on Robot!</p>
+                <p style="position: absolute; top: 170px">Ready </p> 
+                <p style="position: absolute; top: 220px">control via Slider </p>
+                <p style="position: absolute; top: 270px">control via ROS </p> 
+
+                <p style="text-align: right; margin-right: 270px; margin-top: 130px">Release Brake! </p>
+                <p style="text-align: right; margin-right: 270px; margin-top: 30px">Stopping Robot  </p>
+                <p style="text-align: right; margin-right: 270px; margin-top: 30px">Braking Robot  </p>
+
+                <p style="position: absolute; top: 20px; color:blue"> Battery Voltage: </p> 
+                <p style="position: absolute; top: 40px; color:blue"> Position X: </p>
+                <p style="position: absolute; top: 60px; color:blue"> Position Y: </p>
+                <p style="position: absolute; top: 80px; color:blue"> Orientation Alpha: </p>
+
+                <p id="inputVoltage" style="position: absolute; top: 20px; left: 155px; color:blue"> NOT_CONNECTED </p> 
+                <p id="x" style="position: absolute; top: 40px; left: 155px; color:blue"> NOT_CONNECTED </p> 
+                <p id="y" style="position: absolute; top: 60px; left: 155px; color:blue"> NOT_CONNECTED </p> 
+                <p id="alpha" style="position: absolute; top: 80px; left: 155px; color:blue"> NOT_CONNECTED </p> 
+
+                <p style="position: absolute; top: 20px; left: 210px; color:blue">V</p>
+                <p style="position: absolute; top: 40px; left: 210px; color:blue">m</p>
+                <p style="position: absolute; top: 60px; left: 210px; color:blue">m</p>
+                <p style="position: absolute; top: 80px; left: 210px; color:blue">rad</p>     
+            </div>
+        </section>
+        
+        <footer>
+            <p style="position: absolute; bottom: 50px">LEFT <------------------------> RIGHT</p> 
+
+            <form><input type="button" id="stateIdle" value="IDLE" return false" style="position: absolute; top: 120px; left: 15px; width: 170px; height: 40px;"></input></form>
+            <form><input type="button" id="stateStop" value="STOP" return false" style="position: absolute; top: 170px; left: 15px; width: 170px; height: 40px;"></input></form>
+            <form><input type="button" id="stateBrake" value="BRAKE" return false" style="position: absolute; top: 220px; left: 15px; width: 170px; height: 40px;"></input></form>
+            <form><input type="range" id="rotation" name="rotation" min="-2.0" max="2.0" step="0.1" value="0" onInput="moveSlider('rotation')" onMouseUp="releaseSlider('rotation')" onTouchEnd="releaseSlider('rotation')" style="position: absolute; bottom: 30px; left: 15px; right: 15px;"/></form>
+        </footer>
+    </body>
+</html>
