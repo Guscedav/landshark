@@ -7,11 +7,11 @@
  *      Author: Marcel Honegger
  */
 
-#include "Controller.h"
+#include "../include/landshark/Controller.h"
 #include "DigitalOut.h"
 #include "DigitalIn.h"
 #include "AnalogIn.h"
-#include "StateMachine.h"
+#include "../include/landshark/StateMachine.h"
 
 using namespace std;
 

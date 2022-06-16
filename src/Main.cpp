@@ -23,11 +23,11 @@
 #include "DigitalIn.h"
 #include "AnalogOut.h"
 #include "AnalogIn.h"
-#include "Controller.h"
-#include "StateMachine.h"
+#include "../include/landshark/Controller.h"
+#include "../include/landshark/StateMachine.h"
 #include "HTTPServer.h"
-#include "HTTPScriptRobot.h"
-#include "ROSInterface.h"
+#include "../include/landshark/HTTPScriptRobot.h"
+#include "../include/landshark/ROSInterface.h"
 #include "Timer.h"
 
 using namespace std;

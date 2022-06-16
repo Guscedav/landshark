@@ -10,9 +10,9 @@
 #include <iomanip>
 #include <stdint.h>
 #include "Thread.h"
-#include "Controller.h"
-#include "StateMachine.h"
-#include "HTTPScriptRobot.h"
+#include "../include/landshark/Controller.h"
+#include "../include/landshark/StateMachine.h"
+#include "../include/landshark/HTTPScriptRobot.h"
 
 using namespace std;
 

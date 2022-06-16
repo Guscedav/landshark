@@ -11,7 +11,7 @@
 //#include "AnalogOut.h"
 //#include "DigitalOut.h"
 //#include "BeckhoffEL5101.h"
-#include "Controller.h"
+#include "../include/landshark/Controller.h"
 
 using namespace std;
 

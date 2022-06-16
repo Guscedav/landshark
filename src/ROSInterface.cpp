@@ -7,9 +7,9 @@
  *      Author: Marcel Honegger
  */
 
-#include "Controller.h"
-#include "StateMachine.h"
-#include "ROSInterface.h"
+#include "../include/landshark/Controller.h"
+#include "../include/landshark/StateMachine.h"
+#include "../include/landshark/ROSInterface.h"
 #include <tf/transform_broadcaster.h>
 
 

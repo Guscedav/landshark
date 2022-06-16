@@ -132,7 +132,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/landshark_node.cpp)
-add_executable(landshark Main.cpp Controller.cpp StateMachine.cpp HTTPScriptRobot.cpp ROSInterface.cpp)
+add_executable(landshark src/Main.cpp src/Controller.cpp src/StateMachine.cpp src/HTTPScriptRobot.cpp src/ROSInterface.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
