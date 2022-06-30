@@ -70,6 +70,10 @@ string HTTPScriptRobot::call(vector<string> names, vector<string> values) {
             else if (values[i].compare("on") == 0) stateMachine.setState(StateMachine::ON);
             else if (values[i].compare("manual") == 0) stateMachine.setState(StateMachine::MANUAL);
             else if (values[i].compare("remote") == 0) stateMachine.setState(StateMachine::REMOTE);
+            else if (values[i].compare("track") == 0) ros::NodeHandle.setParam("/start_tracking", true); //Attention link to ROSInterface for NodeHandle
+            else if (values[i].compare("follow") == 0) stateMachine.setState(StateMachine::REMOTE);
+            else if (values[i].compare("home") == 0) ros::NodeHandle.setParam("/nav_dir", 1);
+            else if (values[i].compare("goal") == 0) ros::NodeHandle.setParam("/nav_dir", 2);
 
             translationalVelocity = 0.0;
             rotationalVelocity = 0.0;
