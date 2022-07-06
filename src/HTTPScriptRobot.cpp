@@ -9,6 +9,7 @@
 
 #include <iomanip>
 #include <stdint.h>
+#include <node_handle.h>
 #include "Thread.h"
 #include "../include/landshark/Controller.h"
 #include "../include/landshark/StateMachine.h"
@@ -70,10 +71,12 @@ string HTTPScriptRobot::call(vector<string> names, vector<string> values) {
             else if (values[i].compare("on") == 0) stateMachine.setState(StateMachine::ON);
             else if (values[i].compare("manual") == 0) stateMachine.setState(StateMachine::MANUAL);
             else if (values[i].compare("remote") == 0) stateMachine.setState(StateMachine::REMOTE);
-            else if (values[i].compare("track") == 0) ros::NodeHandle.setParam("/start_tracking", true); //Attention link to ROSInterface for NodeHandle
-            else if (values[i].compare("follow") == 0) stateMachine.setState(StateMachine::REMOTE);
-            else if (values[i].compare("home") == 0) ros::NodeHandle.setParam("/nav_dir", 1);
-            else if (values[i].compare("goal") == 0) ros::NodeHandle.setParam("/nav_dir", 2);
+            else if (values[i].compare("track") == 0) { ros::Publisher pub = handle.advertise<std_msgs::Empty>("/start_tracker", -1);
+                                                        ros::Publisher pub = handle.advertise<std_msgs::Bool>("/start_tracking", true);}
+            else if (values[i].compare("stop") == 0) {  ros::Publisher pub = handle.advertise<std_msgs::Empty>("/stop_tracker", -1);
+                                                        ros::Publisher pub = handle.advertise<std_msgs::Bool>("/start_tracking", false);}
+            else if (values[i].compare("home") == 0) ros::Publisher pub = handle.advertise<std_msgs::Empty>("/go_start", -1);
+            else if (values[i].compare("goal") == 0) ros::Publisher pub = handle.advertise<std_msgs::Empty>("/go_end", -1);
 
             translationalVelocity = 0.0;
             rotationalVelocity = 0.0;
